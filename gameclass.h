@@ -38,6 +38,7 @@ class Armygroup
 {
 public:
 	unsigned char number;//军队组里的军队数量，或者认为是等级
+	unsigned short serial_number;//军队序号
 	ying ** grouppoint;
 	float x;//X坐标
 	float y;//y坐标
@@ -69,6 +70,7 @@ public:
 
 	PLACE();	//构造函数
 	void setarmypoint(Armygroup *t);
+	Armygroup* LookNumberArmy(char number);
 	~PLACE();	
 };
 
@@ -122,7 +124,12 @@ IMAGE p1image,p2image;//
 IMAGE arrowimage1,arrowimage2;//箭头图片
 IMAGE trectangle(600,75);//一个临时图片
 
-int sumying;
+//部分全局变量
+unsigned short sumtuan=0;//tuan的总数目
+unsigned short sumlv=0;//lv的总数目
+unsigned short sumshi=0;//shi的总数目
+unsigned int sumying=0;//ying 的总数目
+int ERRORCODE;//一些可能出错的东西，ERRORCODE报错放到ERRORCODE_intruction.txt
 
 //线程参数结构体
 typedef struct threadstruct

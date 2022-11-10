@@ -12,11 +12,6 @@
 注意：本程序使用了itoa函数
 */
 
-//部分全局变量
-unsigned short sumtuan=0;//tuan的总数目
-unsigned short sumlv=0;//lv的总数目
-unsigned short sumshi=0;//shi的总数目
-
 
 
 int main() {

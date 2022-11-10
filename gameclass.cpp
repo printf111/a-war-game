@@ -34,6 +34,12 @@ void PLACE::setarmypoint(Armygroup *t)
 	/**************************特殊处理以后加，现在先在这里进行警告**********************************************************************************/
 	/*							后期考虑使用链式储存																								*/
 }
+Armygroup* PLACE::LookNumberArmy(char number)//找到地方里的第number个元素
+{
+	if(number>15){ ERRORCODE=1; return NULL;}
+	
+	return this->army[number];
+}
 PLACE::~PLACE()
 {
 	delete []army;
@@ -176,6 +182,22 @@ Armygroup::	Armygroup(Armygroup *a1,Armygroup *a2,Armygroup *a3,Armygroup *a4)//
 	unitarmyarr[3]=a4;
 	number = a1->number+a2->number+a3->number+a4->number;
 	
+	//根据number数量开数组和给序号赋值
+	if(number==4) 
+	{
+		sumtuan++;
+		this->serial_number=sumtuan;
+	}
+	if(number==4*4) 
+	{
+		sumlv++;
+		this->serial_number=sumlv;
+	}
+	if(number==4*4*4)
+	{
+		sumshi++;
+		this->serial_number=sumshi;
+	}
 	grouppoint=new ying*[number];
 	
 	//此部分中i为this中的，j为原来的，k为原来中存储的每一个
